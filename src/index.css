@@ -1,0 +1,132 @@
+@import "tailwindcss";
+
+@layer utilities {
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20% { transform: translateX(-6px) rotate(-1deg); }
+    40% { transform: translateX(6px) rotate(1deg); }
+    60% { transform: translateX(-4px); }
+    80% { transform: translateX(4px); }
+  }
+
+  @keyframes damage-float {
+    0% {
+      opacity: 1;
+      transform: translateY(0) scale(0.9);
+    }
+    30% {
+      opacity: 1;
+      transform: translateY(-20px) scale(1.15);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-50px) scale(0.95);
+    }
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: scale(0.96);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes hp-pulse-danger {
+    0%, 100% {
+      box-shadow: 0 0 6px rgba(239, 68, 68, 0.4), inset 0 0 6px rgba(239, 68, 68, 0.3);
+      border-color: rgba(239, 68, 68, 0.6);
+      filter: brightness(1);
+    }
+    50% {
+      box-shadow: 0 0 16px rgba(239, 68, 68, 0.9), inset 0 0 10px rgba(239, 68, 68, 0.6);
+      border-color: rgba(254, 202, 202, 0.95);
+      filter: brightness(1.25);
+    }
+  }
+
+  @keyframes hp-damage-flash {
+    0% {
+      box-shadow: 0 0 25px rgba(239, 68, 68, 1), inset 0 0 15px rgba(255, 255, 255, 0.9);
+      border-color: rgba(255, 255, 255, 1);
+      filter: brightness(1.6);
+      transform: scale(1.03);
+    }
+    40% {
+      box-shadow: 0 0 15px rgba(239, 68, 68, 0.8), inset 0 0 8px rgba(239, 68, 68, 0.7);
+      border-color: rgba(239, 68, 68, 0.8);
+      filter: brightness(1.2);
+    }
+    100% {
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+      border-color: rgba(51, 65, 85, 0.8);
+      filter: brightness(1);
+      transform: scale(1);
+    }
+  }
+
+  @keyframes hp-flash-overlay {
+    0% {
+      opacity: 0.9;
+      background: rgba(239, 68, 68, 0.9);
+    }
+    40% {
+      opacity: 0.7;
+      background: rgba(220, 38, 38, 0.7);
+    }
+    100% {
+      opacity: 0;
+      background: transparent;
+    }
+  }
+
+  @keyframes hp-fill-pulse {
+    0%, 100% {
+      filter: drop-shadow(0 0 3px rgba(239, 68, 68, 0.5));
+      opacity: 0.88;
+    }
+    50% {
+      filter: drop-shadow(0 0 10px rgba(239, 68, 68, 1));
+      opacity: 1;
+    }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.18s ease-out forwards;
+  }
+
+  .animate-hp-pulse {
+    animation: hp-pulse-danger 0.9s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .animate-hp-damage-flash {
+    animation: hp-damage-flash 0.45s ease-out;
+  }
+
+  .animate-hp-flash-overlay {
+    animation: hp-flash-overlay 0.45s ease-out forwards;
+  }
+
+  .animate-hp-fill-pulse {
+    animation: hp-fill-pulse 0.9s ease-in-out infinite alternate;
+  }
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  background-color: #030712;
+  color: #f8fafc;
+  user-select: none;
+  touch-action: manipulation;
+}

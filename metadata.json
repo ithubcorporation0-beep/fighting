@@ -1,0 +1,6 @@
+{
+  "name": "Typing Fighter",
+  "description": "An arcade typing fighting game where words are weapons. Test your speed and accuracy in neon cyberpunk combat.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
